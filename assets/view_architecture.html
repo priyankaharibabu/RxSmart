@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RxSmart Architecture Diagram</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #0a0a0f;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #00d4aa;
+        }
+        h1 {
+            color: #00d4aa;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RxSmart - Multi-Agent Prescription Intelligence Platform</h1>
+        <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto">
+          <!-- Background -->
+          <rect width="1200" height="900" fill="#0a0a0f"/>
+          
+          <!-- Define gradients and styles -->
+          <defs>
+            <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="agentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          
+          <!-- Title -->
+          <text x="600" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#headerGradient)" text-anchor="middle">
+            RxSmart - Multi-Agent Prescription Intelligence Platform
+          </text>
+          
+          <!-- LAYER 1 - USERS -->
+          <g id="users-layer">
+            <rect x="50" y="60" width="1100" height="80" fill="#1a1a2e" stroke="#00d4aa" stroke-width="2" rx="10"/>
+            <text x="600" y="85" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              LAYER 1 - USERS
+            </text>
+            
+            <!-- Patient -->
+            <rect x="200" y="95" width="200" height="35" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="300" y="117" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              👤 Patient (uploads prescription)
+            </text>
+            
+            <!-- Pharmacist -->
+            <rect x="800" y="95" width="200" height="35" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="900" y="117" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              👨‍⚕️ Pharmacist (reviews & serves)
+            </text>
+          </g>
+          
+          <!-- Arrows from Users to Frontend -->
+          <path d="M 300 130 L 300 160 L 600 160 L 600 180" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 900 130 L 900 160 L 600 160 L 600 180" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          
+          <!-- LAYER 2 - FRONTEND -->
+          <g id="frontend-layer">
+            <rect x="50" y="180" width="1100" height="80" fill="#1a1a2e" stroke="#00d4aa" stroke-width="2" rx="10"/>
+            <text x="600" y="205" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              LAYER 2 - FRONTEND
+            </text>
+            
+            <rect x="350" y="215" width="500" height="35" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="600" y="237" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              React + Vite Application | Patient Portal | Pharmacist Dashboard | Home Page
+            </text>
+          </g>
+          
+          <!-- Arrow from Frontend to Backend -->
+          <path d="M 600 260 L 600 290" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          
+          <!-- LAYER 3 - BACKEND API -->
+          <g id="backend-layer">
+            <rect x="50" y="290" width="1100" height="80" fill="#1a1a2e" stroke="#00d4aa" stroke-width="2" rx="10"/>
+            <text x="600" y="315" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              LAYER 3 - BACKEND API
+            </text>
+            
+            <rect x="400" y="325" width="400" height="35" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="600" y="347" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              Node.js + Express REST API (port 5001)
+            </text>
+          </g>
+          
+          <!-- Arrow from Backend to Agents -->
+          <path d="M 600 370 L 600 400" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          
+          <!-- LAYER 4 - 8 AGENT PIPELINE -->
+          <g id="agents-layer">
+            <rect x="50" y="400" width="1100" height="280" fill="url(#agentGradient)" stroke="#00d4aa" stroke-width="3" rx="10" filter="url(#glow)"/>
+            <text x="600" y="425" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              LAYER 4 - 8 AGENT PIPELINE
+            </text>
+            
+            <!-- Agent boxes with technology -->
+            <!-- OCR Agent -->
+            <rect x="80" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="140" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              OCR Agent
+            </text>
+            <text x="140" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              OCR.space API
+            </text>
+            
+            <!-- Arrow -->
+            <path d="M 200 480 L 230 480" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- NLP Agent -->
+            <rect x="230" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="290" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              NLP Agent
+            </text>
+            <text x="290" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              Groq llama-3.3-70b
+            </text>
+            
+            <!-- Arrow -->
+            <path d="M 350 480 L 380 480" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Validation Agent -->
+            <rect x="380" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="440" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              Validation Agent
+            </text>
+            <text x="440" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              Groq llama-3.3-70b
+            </text>
+            
+            <!-- Arrow -->
+            <path d="M 500 480 L 530 480" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Inventory Agent -->
+            <rect x="530" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="590" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              Inventory Agent
+            </text>
+            <text x="590" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              Google Sheets API
+            </text>
+            
+            <!-- Arrow -->
+            <path d="M 650 480 L 680 480" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Billing Agent -->
+            <rect x="680" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="740" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              Billing Agent
+            </text>
+            <text x="740" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              GST Calculator
+            </text>
+            
+            <!-- Arrow -->
+            <path d="M 800 480 L 830 480" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Queue Agent -->
+            <rect x="830" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="890" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              Queue Agent
+            </text>
+            <text x="890" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              Token System
+            </text>
+            
+            <!-- Arrow -->
+            <path d="M 950 480 L 980 480" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Notification Agent -->
+            <rect x="980" y="440" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="1040" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              Notification Agent
+            </text>
+            <text x="1040" y="480" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              Gmail SMTP
+            </text>
+            
+            <!-- Arrow down to Audit Agent -->
+            <path d="M 1040 520 L 1040 550" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Audit Agent (below) -->
+            <rect x="980" y="550" width="120" height="80" fill="#0d1f1c" stroke="#00d4aa" stroke-width="2" rx="5"/>
+            <text x="1040" y="570" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              Audit Agent
+            </text>
+            <text x="1040" y="590" font-family="Arial, sans-serif" font-size="10" fill="#a0a0b0" text-anchor="middle">
+              Supabase
+            </text>
+          </g>
+          
+          <!-- Arrows from Agents to External Services -->
+          <path d="M 140 520 L 140 700" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 290 520 L 290 700" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 440 520 L 440 700" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 590 520 L 590 700" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 740 520 L 740 700" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          <path d="M 1040 630 L 1040 700" stroke="#00d4aa" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+          
+          <!-- LAYER 5 - EXTERNAL SERVICES -->
+          <g id="services-layer">
+            <rect x="50" y="700" width="1100" height="120" fill="#1a1a2e" stroke="#00d4aa" stroke-width="2" rx="10"/>
+            <text x="600" y="725" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#00d4aa" text-anchor="middle">
+              LAYER 5 - EXTERNAL SERVICES
+            </text>
+            
+            <!-- Service boxes -->
+            <rect x="80" y="740" width="150" height="60" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="155" y="775" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              OCR.space
+            </text>
+            
+            <rect x="250" y="740" width="150" height="60" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="325" y="775" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              Groq AI
+            </text>
+            
+            <rect x="420" y="740" width="150" height="60" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="495" y="775" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              Google Sheets
+            </text>
+            
+            <rect x="590" y="740" width="150" height="60" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="665" y="775" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              Supabase DB
+            </text>
+            
+            <rect x="760" y="740" width="150" height="60" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="835" y="775" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              Gmail
+            </text>
+            
+            <rect x="930" y="740" width="150" height="60" fill="#0d1f1c" stroke="#00d4aa" stroke-width="1" rx="5"/>
+            <text x="1005" y="775" font-family="Arial, sans-serif" font-size="14" fill="#00d4aa" text-anchor="middle">
+              PDFKit
+            </text>
+          </g>
+          
+          <!-- Arrow marker definition -->
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#00d4aa"/>
+            </marker>
+          </defs>
+        </svg>
+    </div>
+</body>
+</html>
