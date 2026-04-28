@@ -101,7 +101,7 @@ npm run dev
 - **Password**: `patient123`
 
 #### Pharmacist Login  
-- **Email**: `pharmacist@rxsmart.com`
+- **Email**: `pharmacists@rxsmart.com`
 - **Password**: `pharma123`
 
 
