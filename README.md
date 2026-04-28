@@ -93,6 +93,18 @@ npm run dev
 
 ## 👤 How to Use
 
+
+### Login Credentials
+
+#### Patient Login
+- **Email**: `patient@rxsmart.com`
+- **Password**: `patient123`
+
+#### Pharmacist Login  
+- **Email**: `pharmacist@rxsmart.com`
+- **Password**: `pharma123`
+
+
 ### Patient Flow
 1. **Sign up/Login**: Create account or login to patient portal
 2. **Upload Prescription**: Upload image or type prescription text
